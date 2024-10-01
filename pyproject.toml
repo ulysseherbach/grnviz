@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "grnviz"
+authors = [
+    { name="Ulysse Herbach", email="ulysse.herbach@inria.fr" },
+]
+description = "Visualization of gene co-expression and regulatory networks"
+readme = "README.md"
+dynamic = ["version"]
+
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.4",
+    "networkx>=2.6",
+]
+
+[project.urls]
+Repository = "https://github.com/ulysseherbach/grnviz"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/grnviz"]
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = { local_scheme="no-local-version" }
+
+[tool.ruff]
+select = ["E", "F", "W"]
+line-length = 79
